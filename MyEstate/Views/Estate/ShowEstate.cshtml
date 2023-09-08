@@ -1,0 +1,132 @@
+﻿@model Core.DTOs.ShowEstateViewModel
+
+@{
+    ViewData["Title"] = "نمایش ملک";
+
+}
+
+    
+    <div class="inner-banner-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-4">
+                <div class="inner-content">
+                    <h2>@Model.EstateTitle</h2>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-8 col-md-8 mt-5">
+                <div></div>
+                <div class="inner-img">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="true">
+                            <div id="carouselExample" class="carousel slide">
+
+                                <div class="carousel-indicators">
+                                    @for (int i = 0; i < @Model.EstateImagesViewModels.Count; i++)
+                                    {
+                                        <a role="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")"></a>
+                                    }
+                                </div>
+                                <div class="carousel-inner" role="listbox">
+                                    @for (int i = 0; i < @Model.EstateImagesViewModels.Count; i++)
+                                    {
+                                        <div class="@(i == 0 ? "carousel-item active" : "carousel-item")">
+                                            <img src="/State/Images/@Model.EstateImagesViewModels[i].EstateImageName" class="d-block w-100" alt="...">
+                                        </div>
+                                    }
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" @*data-bs-target="#carouselExample"*@ data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" @*data-bs-target="#carouselExample"*@ data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Slider -->
+
+    <div class="product-details-area cart-wraps-area  pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="cart-calc">
+                        <div class="cart-wraps-form">
+                         
+                            <h5>مشخصات ملک:</h5>
+
+                            <article>
+                                <ul>
+                                    <li>
+                                        <b>نوع ملک:</b>@Model.EstateTypeTitle
+                                    </li>
+                                    <li>
+                                        <b>متراژ کل:</b>@Model.TotalArea متر
+
+                                    </li>
+                                    <li>
+                                        <b>متراژ بنا</b> @Model.BuildingArea متر
+                                    </li>
+                                    <li>
+                                        <b>تعداد اتاق ها:</b> @Model.NumberOfRoom
+                                    </li>
+                                    <li>
+                                        <b>قیمت</b> @Model.Price.ToString("#,0") <span class="text text-danger">قیمت به تومان می باشد</span>
+                                    </li>
+
+                                </ul>
+                            </article>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart-calc">
+                        <div class="cart-wraps-form">
+                            <h5>مشخصات آگهی دهنده:</h5>
+                            <ul>
+                                <li>
+                                    <b>نام :</b> @Model.UserName
+                                </li>
+                                <li>
+                                    <b>شماره تلفن:</b> @Model.Phone
+                                </li>
+                                <li>
+                                    <b>عنوان شغلی:</b> @Model.Career
+                                </li>
+                                <li>
+                                    <b>آیدی اینستا:</b> <a href="https://instagram.com/@Model.InstagramId/" target="_blank">@Model.InstagramId</a>
+                                </li>
+                               
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

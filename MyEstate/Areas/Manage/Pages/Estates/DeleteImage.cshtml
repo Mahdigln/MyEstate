@@ -1,0 +1,36 @@
+﻿@page "{id}.{handler?}"
+@model MyEstate.Areas.Manage.Pages.Estates.EditImageModel
+@{
+}
+
+
+
+<form class="mt-5" method="post" enctype="multipart/form-data" id="subb">
+    <div class="related-products-area pb-70">
+        <div class="container">
+            <br/>
+            <h2 class="mt-2">عکس های ملک</h2>
+            <div class="row pt-45">
+
+                @foreach (var item in Model.EstateImageslist)
+                {
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="product-item">
+                            <div class="product-img">
+                                <a target="_blank" href="/State/Images/@item.EstateImageName">
+                                    <img src="/State/Images/@item.EstateImageName" alt="Estate Images">
+                                </a>
+
+                                <ul class="product-item-action">
+                                    <li> <a asp-page-handler="Delete" asp-route-img="@item.EstateImageName" onclick="return confirm('آیا از حذف عکس مطمئن هستید؟')">حذف</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+    </div>
+</form>

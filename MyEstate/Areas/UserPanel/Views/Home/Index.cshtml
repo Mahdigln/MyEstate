@@ -1,0 +1,98 @@
+﻿@model Core.DTOs.InformationUserViewModel
+
+@{
+    ViewData["Title"] = "پنل کاربری";
+}
+
+
+<div class="checkout-area pt-100 pb-70">
+                
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <partial name="_Sidebar"/>
+            </div>
+            <div class="col-lg-6">
+                <div class="checkout-form">
+                    <div class="contact-form">
+                        <h2>اطلاعات کاربری</h2>
+                        <form id="contactForm" novalidate="true">
+                            <div class="row">
+                               
+                                
+                                <div class="col-lg-3">
+                                    <label>نام کاربری</label>
+                                </div>
+                                <div class="col-lg-9">
+                                        <div class="form-group">
+                                            <input disabled="" class="form-control" asp-for="UserName">
+                                        </div>
+                                    </div>
+                                
+                               
+
+
+                                <div class="col-lg-3">
+                                    <label>ایمیل</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        
+                                        <input disabled="" type="email" class="form-control" asp-for="Email">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-3">
+                                    <label>شماره تلفن</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <input disabled="" class="form-control" asp-for="Phone">
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-lg-3">
+                                    <label>آیدی اینستا</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <input disabled="" class="form-control" asp-for="InstagramId" >
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-3">
+                                    <label>عنوان شغلی</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <input disabled="" class="form-control" asp-for="Career" >
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-lg-3">
+                                    <label>توضیحات</label>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                       <textarea disabled=""  class="form-control" asp-for="Description"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

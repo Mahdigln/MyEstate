@@ -1,0 +1,52 @@
+﻿@page
+@model MyEstate.Areas.Manage.Pages.Estates.IndexModel
+@{
+}
+
+<div class="related-products-area mt-5">
+    <br />
+    <div class="section-title">
+        <h2>لیست ملک ها</h2>
+    </div>
+    <a asp-page="CreateEstate"  class="default-btn btn-bg-three m-4">افزودن آگهی</a>
+    <div class="row pt-45">
+        @foreach (var item in @Model.Estates)
+        {
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="product-item">
+                    <div class="product-img" @*style="width: 500px; width: 500px"*@>
+                        <a>
+                            <img src="/State/Demos/@item.DemoFileName" alt="Estate Images">
+                        </a>
+                        @*<div class="product-item-tag">
+                            <h3>New</h3>
+                            </div>*@
+                        <ul class="product-item-action">
+                            <li><a href="/Manage/Estates/DeleteImage/@item.EstateId">عکس</a></li>
+                            <li><a href="/Manage/Estates/DeleteEstate/@item.EstateId">حذف</a></li>
+                            <li><a style="size: 2px" href="/Manage/Estates/EditEstate/@item.EstateId">تغییر</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="content">
+                        <h3><a href="shop-details.html">@item.EstateTitle</a></h3>
+                        @* <div class="rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            </div>*@
+                        @*                                            <span>$12.0/Kg </span>
+                        *@
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+
+</div>

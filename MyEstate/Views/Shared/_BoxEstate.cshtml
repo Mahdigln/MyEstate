@@ -1,0 +1,33 @@
+﻿@model Core.DTOs.ShowEstateListItemViewModel
+
+
+    <div class="col-lg-4 col-sm-6 mt-4">
+        <div class="latest-product-card">
+            <div class="latest-product-img">
+                <a href="/ShowEstate/@Model.EstateId">
+                    <img src="/State/Demos/@Model.DemoFileName" alt="Product Images">
+                </a>
+                <ul class="latest-product-action">
+                    <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                    <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h3><a href="shop-details.html">@Model.EstateTitle</a></h3>
+                @* <div class="rating">
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                </div>*@
+                <span class="mt-4">@Model.Price.ToString("#,0") تومان</span>
+                <span class="mt-4" style="right: -180px;">@Model.TotalArea متر مربع</span> 
+            </div>
+           
+        </div>
+    </div>
+
+          

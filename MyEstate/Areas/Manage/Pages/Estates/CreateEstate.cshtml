@@ -1,0 +1,124 @@
+﻿@page
+@model MyEstate.Areas.Manage.Pages.Estates.CreateStateModel
+@{
+    ViewData["Title"] = "افزودن ملک";
+}
+
+
+
+<div class="checkout-area pt-100 pb-70">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+            <div class="col-lg-6">
+                <div class="checkout-form">
+                    <div class="contact-form">
+                        <h2>افزودن ملک</h2>
+                        <form method="post" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <input type="file" name="imgEstate" id="imgEstate" multiple="" />
+                                <p>لطفا  تصاویر ملک انتخاب کنید</p>
+                                <img class="thumbnail" src=""  style="max-width: 150px" />
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <input type="file" name="imgDemo" id="imgProgileUp" />
+                                <p>لطفا عکس پروفایل ملک انتخاب کنید</p>
+                                <img class="thumbnail" id="imgProfile" src=""  style="max-width: 150px" />
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Estate.EstateTitle" class="control-label"></label>
+                                <input asp-for="Estate.EstateTitle" class="form-control" />
+                                <span asp-validation-for="Estate.EstateTitle" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class=" form-control-label"><strong>نوع ملک</strong></label>
+                                <select class="form-control" asp-for="Estate.EstateTypeId" asp-items="@(ViewData["EstateType"] as  SelectList)"></select>
+                                <span asp-validation-for="Estate.EstateTypeId"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Estate.TotalArea" class="control-label"></label>
+                                <input asp-for="Estate.TotalArea" class="form-control" />
+                                <span asp-validation-for="Estate.TotalArea" class="text-danger"></span>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label asp-for="Estate.BuildingArea" class="control-label"></label>
+                                <input asp-for="Estate.BuildingArea" class="form-control" />
+                                <span asp-validation-for="Estate.BuildingArea" class="text-danger"></span>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label asp-for="Estate.NumberOfRoom" class="control-label"></label>
+                                <input asp-for="Estate.NumberOfRoom" class="form-control" />
+                                <span asp-validation-for="Estate.NumberOfRoom" class="text-danger"></span>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label asp-for="Estate.Price" class="control-label"></label>
+                                <input asp-for="Estate.Price" class="form-control" />
+                                <span asp-validation-for="Estate.Price" class="text-danger"></span>
+                            </div>
+                            
+                            
+                            @* <div class="form-group">
+                                <label asp-for="Estate.EstateFeatures" class="control-label"></label>
+                                <input asp-for="Estate.EstateFeatures" class="form-control" />
+                                <input type="submit" asp-page-handler="AddFeature" class="form-control" />
+
+                                <span asp-validation-for="Estate.EstateFeatures" class="text-danger"></span>
+                            </div>*@
+                            
+                            
+                           
+                           
+                            <div class="col-lg-12 ">
+                                <button type="submit" class="default-btn btn-bg-three">
+                                    ثبت
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#imgProfile').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgProgileUp").change(function() {
+            readURL(this);
+        });
+
+    </script>
+}

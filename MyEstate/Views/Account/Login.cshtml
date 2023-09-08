@@ -1,0 +1,65 @@
+﻿@model Core.DTOs.LoginViewModel
+@{
+    ViewData["Title"] = "ورود";
+}
+
+
+<div class="user-area pt-100 pb-70">
+    <div class="container">
+        <div class="user-width">
+            <div class="user-form">
+                <div class="contact-form">
+                    <h2>ورود</h2>
+                    <form asp-action="Login" method="post" >
+                        <div class="row">
+                            @if (ViewBag.EditProfile==true)
+                            {
+                                <div class="alert alert-warning">
+                                    <p class="alert-heading">   به دلیل ویرایش پروفایل و بارگذاری مجدد اطلاعات لطفا مجدد لاگین کنید</p>
+                                </div>
+                            }
+                            @if (ViewBag.IsSuccess != null) @* !=null == true*@
+                            {
+                                <div class="alert alert-success">
+                                    <p class="alert-heading">ورود با موفقیت انجام شد</p>
+                                </div>
+
+                                <script>
+                                    //Your delay in milliseconds
+                                    var delay = 1500;
+                                    setTimeout(function() { window.location = "https://localhost:7172/UserPanel"; }, delay);
+                                </script>
+                            }
+                            <div class="col-lg-12 ">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" asp-for="Email" placeholder="ایمیل را وارد کنید">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" asp-for="Password" type="password" placeholder="پسورد را وارد کنید">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 form-condition">
+                                <div class="agree-label">
+                                    <input type="checkbox" asp-for="RememberMe" id="chb1">
+                                    <label for="chb1">
+                                        به خاطر بسپار <a class="forget" href="forget-password.html">فراموش کردن رمز عبور؟</a>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 ">
+                                <button type="submit" class="default-btn btn-bg-three">
+                                    ورود
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

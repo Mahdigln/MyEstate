@@ -1,0 +1,49 @@
+﻿@using Core.DTOs
+@using Core.Services.Interfaces
+
+
+@inject IUserService _userService
+@{
+    SideBarUserPanelViewModel user = _userService.GetSideBarUserPanelData(User.Identity.Name);
+}
+
+
+<div class="product-side-bar">
+
+    <div class="product-side-bar-widget">
+        <div class="product-popular-post">
+            <article class="item">
+                <a class="thumb">
+@*                    <span class="full-image cover bg1"  role="img"></span>
+*@                    <img  style="height: 150px;width: 150px" src="/ProfileImage/@user.ProfileImageName" />
+                </a>
+                
+            </article>
+            <div >
+                <h4>
+                    @user.UserName
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="product-side-bar-widget">
+        <div class="product-side-categories">
+            <ul>
+                <li><a href="/UserPanel"> مشاهده حساب کابری </a></li>
+                <li><a href="/UserPanel/EditProfile"> ویرایش حساب کابری </a></li>
+                <li><a href="/UserPanel/ChangePassword"> تغییر پسورد </a></li>
+                <li><a href="/Manage/Estates/">مدیریت ملک ها</a></li>
+             @*   <li><a href="/Manage/Estates/CreateEstate">افزودن ملک</a></li>
+                <li><a href="/Manage/Estates/EditEstate">ویرایش ملک</a></li>
+                <li><a href="/Manage/Estates/DeleteEstate">حذف ملک</a></li>
+               <li><a href=""></a></li>*@
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</div>
