@@ -22,7 +22,7 @@ public class MailService : IMailService
         var email = new MimeMessage();
         email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
         //email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
-        email.To.Add(MailboxAddress.Parse("Mahdi.fast.g3@gmail.com"));
+        email.To.Add(MailboxAddress.Parse("enteremail"));
         email.Subject = mailRequest.Subject;
         
         var builder = new BodyBuilder();
